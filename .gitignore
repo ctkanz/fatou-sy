@@ -1,0 +1,6 @@
+.DS_Store
+base/
+*.mp4
+*.mov
+*.wav
+*.py
