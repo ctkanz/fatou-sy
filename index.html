@@ -785,6 +785,447 @@
       color: #888888;
       font-size: 0.85rem;
     }
+
+    /* Bouton Demander le prix dans les cartes */
+    .btn-ask-price {
+      background: #111111;
+      color: #ffffff;
+      border: 1px solid #111111;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .btn-ask-price:hover {
+      background: #333333;
+      border-color: #333333;
+      transform: translateY(-1px);
+    }
+
+    .btn-ask-price svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    /* Section Contact & Demande de prix - Bloc Noir Épuré */
+    .price-request-section {
+      background: #0d0d0d;
+      color: #ffffff;
+      border-top: 1px solid #1c1c1c;
+      border-bottom: 1px solid #1c1c1c;
+      padding: 45px 24px 50px;
+      margin-top: 60px;
+      position: relative;
+      transition: padding 0.35s ease;
+    }
+
+    .price-request-section.active {
+      padding: 55px 24px 60px;
+    }
+
+    /* Parties affichées uniquement lors du clic sur Demander le prix */
+    .request-interactive-content {
+      display: none;
+      animation: fadeInInteractive 0.4s ease forwards;
+    }
+
+    .price-request-section.active .request-interactive-content {
+      display: block;
+    }
+
+    /* En-tête mode permanent (quand inactif) */
+    .permanent-contact-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .price-request-section.active .permanent-contact-header {
+      display: none;
+    }
+
+    .price-request-section.active .request-expanded-header {
+      display: block;
+    }
+
+    .request-expanded-header {
+      display: none;
+      text-align: center;
+      margin-bottom: 22px;
+      animation: fadeInInteractive 0.35s ease forwards;
+    }
+
+    @keyframes fadeInInteractive {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .request-container {
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .request-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .request-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #777777;
+      margin-bottom: 8px;
+    }
+
+    .request-title {
+      font-family: 'Castoro Titling', Georgia, serif;
+      font-size: clamp(0.95rem, 2vw, 1.3rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .request-desc {
+      color: #888888;
+      font-size: 0.92rem;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .request-desc a.call-link {
+      color: #dddddd;
+      text-decoration: underline;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .request-desc a.call-link:hover {
+      color: #ffffff;
+    }
+
+    /* Actions globales sélection au-dessus du carrousel */
+    .selection-controls {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      padding: 0 4px 8px;
+    }
+
+    .selection-quick-btn {
+      background: transparent;
+      border: none;
+      color: #777777;
+      font-size: 0.76rem;
+      text-decoration: underline;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 2px 4px;
+      transition: color 0.2s;
+    }
+
+    .selection-quick-btn:hover {
+      color: #ffffff;
+    }
+
+    /* Carrousel des Oeuvres */
+    .carousel-wrapper {
+      position: relative;
+      margin: 0 0 30px 0;
+    }
+
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      background: rgba(18, 18, 18, 0.92);
+      border: 1px solid #333333;
+      color: #ffffff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      z-index: 5;
+      transition: all 0.2s ease;
+    }
+
+    .carousel-nav-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .carousel-nav-prev { left: -14px; }
+    .carousel-nav-next { right: -14px; }
+
+    .carousel-track {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: #2b2b2b transparent;
+      padding: 6px 2px 14px;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .carousel-track::-webkit-scrollbar-thumb {
+      background: #2b2b2b;
+      border-radius: 4px;
+    }
+
+    .carousel-item {
+      flex: 0 0 160px;
+      scroll-snap-align: start;
+      background: #141414;
+      border: 1px solid #222222;
+      border-radius: 2px;
+      padding: 9px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      position: relative;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carousel-item:hover {
+      border-color: #4a4a4a;
+      transform: translateY(-2px);
+    }
+
+    .carousel-item.selected {
+      border-color: #ffffff;
+      background: #1a1a1a;
+      box-shadow: 0 0 0 1px #ffffff, 0 6px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    .carousel-item-img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      background: #1e1e1e;
+      border-radius: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .carousel-item-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #777777;
+      margin-bottom: 2px;
+    }
+
+    .carousel-item-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 8px;
+    }
+
+    .carousel-item-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: #888888;
+      margin-top: auto;
+      padding-top: 6px;
+      border-top: 1px solid #202020;
+    }
+
+    .checkbox-indicator {
+      width: 15px;
+      height: 15px;
+      border: 1px solid #444444;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .carousel-item.selected .checkbox-indicator {
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .carousel-item.selected .checkbox-indicator::after {
+      content: "\2713";
+      color: #000000;
+      font-size: 0.68rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .carousel-item.selected .carousel-item-checkbox {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Formulaire Unifié & Compact */
+    .unified-action-bar {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .action-input-wrapper {
+      flex: 1;
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #141414;
+      border: 1px solid #2b2b2b;
+      color: #ffffff;
+      padding: 13px 18px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .form-input:focus {
+      background: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 0 0 1px #ffffff;
+    }
+
+    .form-input::placeholder {
+      color: #666666;
+    }
+
+    .btn-send-whatsapp {
+      flex: 0 0 auto;
+      background: #ffffff;
+      color: #111111;
+      border: 1px solid #ffffff;
+      padding: 13px 26px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-send-whatsapp:hover {
+      background: #e2e2e2;
+      border-color: #e2e2e2;
+      color: #000000;
+      transform: translateY(-1px);
+    }
+
+    .btn-send-whatsapp:disabled,
+    .btn-send-whatsapp.disabled {
+      background: #1c1c1c;
+      border-color: #282828;
+      color: #555555;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-send-whatsapp svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
+    .direct-call-hint {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: #777777;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      line-height: 1.5;
+    }
+
+    .direct-call-hint a {
+      color: #aaaaaa;
+      text-decoration: none;
+      border-bottom: 1px dotted #555555;
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .direct-call-hint a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    @media (max-width: 680px) {
+      .carousel-item {
+        flex: 0 0 140px;
+      }
+      .carousel-nav-btn {
+        display: none;
+      }
+      .action-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .btn-send-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
@@ -876,18 +1317,17 @@
                 totale : 100 à 120 cm max.</span>
             </div>
             <div class="dispositif-box">
-              <strong>Dispositif lumineux :</strong> Éclairage électrique projetant une dentelle d'ombre et de
+              ⚡ <strong>Dispositif lumineux :</strong> Éclairage électrique projetant une dentelle d'ombre et de
               lumière. Cycle programmé : Lampe 1 (10s) &rarr; Lampe 2 (10s) &rarr; Lampe 3 (10s) &rarr; Toutes allumées
               (20s) &rarr; Toutes éteintes (10s).
             </div>
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-amount">250 000 F CFA</span>
-              <span class="price-sub">par luminaire</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(1)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -934,16 +1374,16 @@
                 cm.</span>
             </div>
             <div class="dispositif-box">
-              <strong>Dispositif lumineux :</strong> Éclairage électrique intégré projetant les motifs perforés en
+              ⚡ <strong>Dispositif lumineux :</strong> Éclairage électrique intégré projetant les motifs perforés en
               dentelle d'ombre et de lumière.
             </div>
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-na">—</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(2)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1006,16 +1446,16 @@
                 cm.</span>
             </div>
             <div class="dispositif-box">
-              <strong>Dispositif lumineux :</strong> Éclairage électrique intégré projetant les motifs perforés en
+              ⚡ <strong>Dispositif lumineux :</strong> Éclairage électrique intégré projetant les motifs perforés en
               dentelle d'ombre et de lumière.
             </div>
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-amount">250 000 F CFA</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(3)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1061,16 +1501,16 @@
               <span class="detail-val">Calebasse : Ø 50 à 60 cm. Hauteur totale : 60 cm.</span>
             </div>
             <div class="dispositif-box">
-              <strong>Dispositif lumineux :</strong> Éclairage électrique intégré projetant les motifs perforés en
+              ⚡ <strong>Dispositif lumineux :</strong> Éclairage électrique intégré projetant les motifs perforés en
               dentelle d'ombre et de lumière.
             </div>
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-na">—</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(4)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1117,10 +1557,10 @@
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-amount">150 000 F CFA</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(5)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1166,10 +1606,10 @@
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-amount">70 000 F CFA</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(6)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1216,10 +1656,10 @@
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-amount">135 000 F CFA</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(7)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1262,10 +1702,10 @@
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-na">—</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(8)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
@@ -1301,14 +1741,78 @@
           </div>
 
           <div class="card-footer">
-            <div class="price-tag">
-              <span class="price-label">Prix</span>
-              <span class="price-amount">130 000 F CFA</span>
-            </div>
+            <button type="button" class="btn-ask-price" onclick="requestPriceForOeuvre(9)">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08z"/></svg>
+              Demander le prix
+            </button>
           </div>
         </div>
       </article>
 
+
+      <!-- BLOC NOIR PERMANENT & TRANSFORMABLE -->
+      <section class="price-request-section" id="priceRequestSection">
+        <div class="request-container">
+          
+          <!-- Mode Permanent : Contact -->
+          <div class="permanent-contact-header">
+            <h2 class="request-title">Contact &amp; Renseignements</h2>
+            <p class="request-desc">
+              Pour toute question, commande ou acquisition d’œuvre, contactez l’atelier directement par WhatsApp, téléphone ou email.
+            </p>
+          </div>
+
+          <!-- Mode Déployé : Renseignements & Tarifs (activé au clic sur "Demander le prix") -->
+          <div class="request-expanded-header">
+            <h2 class="request-title">Renseignements &amp; Tarifs</h2>
+            <p class="request-desc">
+              Pour demander le prix d'une ou plusieurs œuvres, sélectionnez une ou plusieurs pièces dans le carrousel ci-dessous, renseignez votre nom, puis cliquez sur « Envoyer ma demande ».
+            </p>
+          </div>
+
+          <!-- Contenu Interactif (Carrousel + Formulaire WhatsApp) activé au clic -->
+          <div class="request-interactive-content">
+            <!-- Barre de sélection rapide -->
+            <div class="selection-controls">
+              <div>
+                <button type="button" class="selection-quick-btn" onclick="selectAllOeuvres(true)">Tout sélectionner</button>
+                <span style="color:#555; margin:0 6px;">|</span>
+                <button type="button" class="selection-quick-btn" onclick="selectAllOeuvres(false)">Tout désélectionner</button>
+              </div>
+            </div>
+
+            <!-- Carrousel des 9 Oeuvres -->
+            <div class="carousel-wrapper">
+              <button type="button" class="carousel-nav-btn carousel-nav-prev" onclick="scrollCarousel(-1)" aria-label="Précédent">&#10094;</button>
+              <div class="carousel-track" id="oeuvresCarousel">
+                <!-- Rempli dynamiquement par JS -->
+              </div>
+              <button type="button" class="carousel-nav-btn carousel-nav-next" onclick="scrollCarousel(1)" aria-label="Suivant">&#10095;</button>
+            </div>
+
+            <!-- Barre d'action unifiée (Nom + Bouton WhatsApp) -->
+            <div class="unified-action-bar">
+              <div class="action-row">
+                <div class="action-input-wrapper">
+                  <input type="text" id="visitorName" class="form-input" placeholder="Votre nom &amp; prénom (ex : Mamadou Ndiaye)" autocomplete="name" oninput="updateWhatsAppButton()">
+                </div>
+                <button type="button" id="btnSendWhatsApp" class="btn-send-whatsapp" onclick="sendWhatsAppRequest()">
+                  <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.29c0-4.46 3.63-8.09 8.09-8.09 2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c-.01 4.46-3.64 8.08-8.1 8.08zm4.43-6.05c-.24-.12-1.44-.71-1.66-.79-.22-.09-.39-.12-.55.12-.17.25-.64.79-.79.95-.14.17-.29.19-.53.07-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.45-1.35-1.69-.14-.24-.02-.37.1-.49.11-.11.24-.29.37-.43.12-.14.17-.24.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.83-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.74 2.65 4.2 3.72.59.25 1.04.41 1.4.52.59.19 1.13.16 1.56.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.05-.1-.21-.16-.45-.28z"/></svg>
+                  <span id="btnWhatsAppText">Envoyer ma demande</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coordonnées permanentes (téléphone, email, adresse) -->
+          <div class="direct-call-hint">
+            <div>Contact WhatsApp &amp; Appel direct : <a href="tel:+221777733444"><strong>+221 77 773 34 44</strong></a></div>
+            <div>Email : <a href="mailto:Fatouleyesy@gmail.com">Fatouleyesy@gmail.com</a></div>
+            <div>Adresse : Liberté 6 Dakar Sénégal</div>
+          </div>
+
+        </div>
+      </section>
     </div>
     <!-- Fin Vue Exposition -->
     </div>
@@ -1579,6 +2083,191 @@
       if (touchStartX - touchEndX > 50) changeLightbox(1);
       if (touchEndX - touchStartX > 50) changeLightbox(-1);
     }, { passive: true });
+
+    // --- GESTION DE LA DEMANDE DE PRIX & CARROUSEL WHATSAPP ---
+    const OEUVRES_DATA = [
+      { id: 1, num: "Œuvre 1", title: "L'ombre du Calebassier", img: "oeuvres/WhatsApp Image 2026-11-21 at 23.51.10 (1).jpeg" },
+      { id: 2, num: "Œuvre 2", title: "Planète", img: "oeuvres/planete_allumee.jpg" },
+      { id: 3, num: "Œuvre 3", title: "Globe", img: "oeuvres/globe_luminaire.jpg" },
+      { id: 4, num: "Œuvre 4", title: "Nid", img: "oeuvres/nid_socle_tissu.jpg" },
+      { id: 5, num: "Œuvre 5", title: "Sans titre", img: "oeuvres/WhatsApp Image 2026-11-21 at 23.51.09 (1).jpeg" },
+      { id: 6, num: "Œuvre 6", title: "Masque", img: "oeuvres/WhatsApp Image 2026-11-21 at 23.51.07 (1).jpeg" },
+      { id: 7, num: "Œuvre 7", title: "Poterie noire", img: "oeuvres/poterie_noire_face.jpg" },
+      { id: 8, num: "Œuvre 8", title: "Poterie", img: "oeuvres/WhatsApp Image 2026-11-21 at 23.51.06 (1).jpeg" },
+      { id: 9, num: "Œuvre 9", title: "Poterie marron", img: "oeuvres/poterie_marron.jpg" }
+    ];
+
+    let selectedOeuvreIds = new Set();
+    const WHATSAPP_PHONE = "221777733444";
+
+    // Initialisation du carrousel dans le bloc noir
+    function initOeuvresCarousel() {
+      const track = document.getElementById('oeuvresCarousel');
+      if (!track) return;
+      track.innerHTML = '';
+
+      OEUVRES_DATA.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'carousel-item';
+        el.id = `carousel-item-${item.id}`;
+        el.onclick = () => toggleOeuvreSelection(item.id);
+        el.innerHTML = `
+          <img src="${item.img}" alt="${item.title}" class="carousel-item-img" loading="lazy">
+          <div class="carousel-item-badge">${item.num}</div>
+          <div class="carousel-item-title" title="${item.title}">${item.title}</div>
+          <div class="carousel-item-checkbox">
+            <span class="checkbox-indicator"></span>
+            <span>Sélectionner</span>
+          </div>
+        `;
+        track.appendChild(el);
+      });
+
+      // Charger le nom mémorisé s'il existe
+      const savedName = localStorage.getItem('visitor_name_art');
+      const inputName = document.getElementById('visitorName');
+      if (savedName && inputName) {
+        inputName.value = savedName;
+      }
+
+      updateSelectionUI();
+    }
+
+    function scrollCarousel(dir) {
+      const track = document.getElementById('oeuvresCarousel');
+      if (!track) return;
+      const scrollAmount = 240;
+      track.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+    }
+
+    function toggleOeuvreSelection(id) {
+      if (selectedOeuvreIds.has(id)) {
+        selectedOeuvreIds.delete(id);
+      } else {
+        selectedOeuvreIds.add(id);
+      }
+      updateSelectionUI();
+    }
+
+    function selectAllOeuvres(select) {
+      if (select) {
+        OEUVRES_DATA.forEach(o => selectedOeuvreIds.add(o.id));
+      } else {
+        selectedOeuvreIds.clear();
+      }
+      updateSelectionUI();
+    }
+
+    function updateSelectionUI() {
+      OEUVRES_DATA.forEach(item => {
+        const el = document.getElementById(`carousel-item-${item.id}`);
+        if (el) {
+          if (selectedOeuvreIds.has(item.id)) {
+            el.classList.add('selected');
+          } else {
+            el.classList.remove('selected');
+          }
+        }
+      });
+
+      updateWhatsAppButton();
+    }
+
+    function updateWhatsAppButton() {
+      const btn = document.getElementById('btnSendWhatsApp');
+      const textSpan = document.getElementById('btnWhatsAppText');
+      const count = selectedOeuvreIds.size;
+
+      if (count === 0) {
+        btn.classList.add('disabled');
+      } else {
+        btn.classList.remove('disabled');
+      }
+      textSpan.textContent = "Envoyer ma demande";
+    }
+
+    // Clic sur "Demander le prix" depuis une carte de la galerie
+    function requestPriceForOeuvre(oeuvreId) {
+      // Si la vue biographie est active, repasser en exposition
+      const viewExpo = document.getElementById('viewExposition');
+      if (viewExpo && viewExpo.classList.contains('hidden')) {
+        switchView('exposition');
+      }
+
+      // 1. Afficher le bloc noir s'il est masqué
+      const section = document.getElementById('priceRequestSection');
+      if (section) {
+        section.classList.add('active');
+      }
+
+      // 2. Sélectionner l'œuvre
+      selectedOeuvreIds.add(oeuvreId);
+      updateSelectionUI();
+
+      // 3. Défiler vers le bloc noir et centrer l'item dans le carrousel après affichage
+      requestAnimationFrame(() => {
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        const targetItem = document.getElementById(`carousel-item-${oeuvreId}`);
+        const track = document.getElementById('oeuvresCarousel');
+        if (targetItem && track) {
+          const offsetLeft = targetItem.offsetLeft - track.offsetLeft - 30;
+          track.scrollTo({ left: offsetLeft, behavior: 'smooth' });
+        }
+
+        const inputName = document.getElementById('visitorName');
+        if (inputName && !inputName.value.trim()) {
+          setTimeout(() => inputName.focus(), 500);
+        }
+      });
+    }
+
+    // Envoi WhatsApp
+    function sendWhatsAppRequest() {
+      if (selectedOeuvreIds.size === 0) {
+        alert("Veuillez sélectionner au moins une œuvre dans le carrousel.");
+        return;
+      }
+
+      const inputName = document.getElementById('visitorName');
+      const name = inputName ? inputName.value.trim() : '';
+
+      // Mémoriser le nom pour les prochaines fois
+      if (name) {
+        localStorage.setItem('visitor_name_art', name);
+      }
+
+      const selectedItems = OEUVRES_DATA.filter(o => selectedOeuvreIds.has(o.id));
+      
+      let message = "Bonjour,\n";
+      if (name) {
+        message += `Je m'appelle *${name}*.\n\n`;
+      }
+
+      if (selectedItems.length === 1) {
+        message += `Je souhaite connaître le tarif et la disponibilité pour l'œuvre suivante :\n`;
+        message += `• *${selectedItems[0].num} — "${selectedItems[0].title}"*\n\n`;
+      } else {
+        message += `Je souhaite connaître les tarifs et les disponibilités pour les œuvres suivantes :\n`;
+        selectedItems.forEach(item => {
+          message += `• *${item.num} — "${item.title}"*\n`;
+        });
+        message += "\n";
+      }
+
+      message += "Merci d'avance pour vos informations !";
+
+      const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+
+    // Initialiser au chargement
+    document.addEventListener('DOMContentLoaded', () => {
+      initOeuvresCarousel();
+    });
+
   </script>
 </body>
 
